@@ -34,6 +34,7 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  # pohuy
   private
   def set_post 
     @post = Post.find_by id: params[:id]
