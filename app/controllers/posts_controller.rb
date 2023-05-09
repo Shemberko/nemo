@@ -35,6 +35,7 @@ class PostsController < ApplicationController
   end
 
   # pohuy
+  # Ahahahahahahahha Sasha loh
   private
   def set_post 
     @post = Post.find_by id: params[:id]
