@@ -1,0 +1,5 @@
+=form_with model: @category do |f| 
+  .form_category
+    =f.text_field :name , require:true, minlength:1 
+    =f.text_area :description 
+    =f.submit "submit"

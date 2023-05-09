@@ -1,0 +1,185 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+.sticky-footer {
+  min-height: calc(100vh - 48px);
+  // overflow: hidden;
+}
+
+.nav {
+  background-color: rgb(100, 110, 128);
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  .button {
+    margin-right: 10px;
+    margin-left: 5px;
+    left: 0%;
+    padding: 5px;
+    background-color: rgb(120, 158, 225);
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px #6f79b1;
+  }
+}
+.category_show{
+  &_posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border:3px solid #000;
+    box-shadow: inset 0px 0px 10px #000;
+    padding: 10px;
+  }
+}
+
+.form_category {
+  display: flex;
+  flex-direction: column;
+  margin: 100px;
+  padding: auto;
+}
+
+.category_block {
+  border-radius: 10px;
+  padding:20px;
+  border: 3px solid #5a5454;
+  margin: 5px;
+  background-color: #a28685;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 15px #403838;
+}
+.blocks {
+  border-radius: 10px;
+  padding: 10px;
+  border: 3px solid #5a5454;
+  margin: 5px 10px ;
+  margin-top: 20px;
+  box-shadow:  5px 5px 5px #5a5454;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &_photo {
+    img {
+      width: 250px;
+    }
+    
+    margin: 20px;
+  }
+  .buttons_bl {
+    display: flex;
+    flex-direction: column;
+    .button {
+      padding: 10px 20px;
+      margin: 20px;
+    }
+  }
+
+  .buttons_bl {
+    .button {
+      margin-right: 10px;
+      margin-left: 5px;
+      left: 0%;
+      padding: 5px;
+      background-color: rgb(120, 158, 225);
+      border-radius: 5px;
+      box-shadow: 3px 3px 3px #6f79b1;
+    }
+  }
+}
+
+body {
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+.footer {
+  bottom: 0;
+  padding: 5px;
+  left: 0;
+  width: 99%;
+  background-color: rgb(100, 110, 128);
+  p {
+    margin-right: 15px;
+    font-size: 25px;
+  }
+  &_inner {
+      display: flex;
+      align-items: center;    
+      .button {
+        margin-right: 10px;
+        margin-left: 5px;
+        padding: 5px 15px;
+        background-color: rgb(120, 158, 225);
+        border-radius: 5px;
+        box-shadow: 3px 3px 3px #6f79b1;
+      }  
+  }
+}
+
+
+
+// new
+.form_block {
+  color: darkslategrey;
+  display: flex ;
+  flex-direction: column;
+}
+.new_description {
+  margin: 10px;
+  width: max-content;
+  display: flex ;
+  flex-direction: column;
+}
+
+.new_title {
+  margin: 10px;
+  display: flex ;
+  flex-direction: column;
+  width: max-content;
+}
+
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.home_h {
+  background-color: #836c6c;
+  padding: 50px;
+  margin: 50px;
+  border-radius: 9px;
+  box-shadow: 5px 5px 4px #a28685;
+}
+
+.home_b {
+  
+ .img {
+  width: 80%;
+  border-radius:1%;
+ }
+}

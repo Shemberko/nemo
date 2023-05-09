@@ -1,0 +1,7 @@
+.category_show
+  h3 = @category.name 
+  h5 = @category.description 
+  -if @posts
+    .category_show_posts
+      -@posts.each do |post|
+        h3 = post.title

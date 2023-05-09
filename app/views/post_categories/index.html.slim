@@ -1,0 +1,9 @@
+-@categories.each do |category|
+  .category_block
+    h3 = category.name 
+    -if category.description.present?
+      p = category.description
+    .button
+      li = link_to 'Categories_update', edit_post_category_path(category)
+    .button
+      li = link_to 'Categoriy_show', post_category_path(category)

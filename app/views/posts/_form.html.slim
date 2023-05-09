@@ -1,0 +1,13 @@
+= form_with model: @post do |pp|
+  .form_block
+    .new_title
+      = pp.label :title 
+      = pp.text_field :title, placeholder: "Title",required: true, minlength: 1
+    .new_description 
+      = pp.label :description 
+      = pp.text_area :description, placeholder: "Description", required: true, minlength: 5
+    .new_photo 
+      = pp.file_field :photo
+    .new_select
+      = pp.select :post_category_id, collection: PostCategory.pluck(:name, :id)
+  = pp.submit "Submit post"
