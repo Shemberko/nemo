@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :set_post, only: %i[destroy edit update]
 
   def index
@@ -9,9 +10,9 @@ class PostsController < ApplicationController
       @post = Post.new
   end
 
-  def create 
+  def create
     @post = Post.new private_params
-    #render plain: params
+    pry
     if @post.save
       redirect_to posts_path 
     else 
@@ -34,8 +35,6 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
-  # pohuy
-  # Ahahahahahahahha Sasha loh
   private
   def set_post 
     @post = Post.find_by id: params[:id]
