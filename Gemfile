@@ -22,7 +22,7 @@ gem 'caxlsx_rails'
 gem 'rubyXL'
 gem 'seven_zip_ruby'
 gem 'activerecord-import'
-
+gem 'rails-i18n'
 
 
 gem "importmap-rails"

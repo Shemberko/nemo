@@ -1,5 +1,16 @@
-=provide :main_menu do
-  header.navbar.navbar-expand-lg.navbar-dark.bg-dark
-    li = nav_tab 'home', root_path,  current_page: current_page
-    li = nav_tab 'posts', posts_path, current_page: current_page
-    li = nav_tab 'my_posts', my_posts_path, current_page: current_page if current_user.present?
+= provide :main_menu do
+    header.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        li = nav_tab 'home', root_path, current_page: current_page
+        li = nav_tab 'posts', posts_path, current_page: current_page
+        li = nav_tab 'my_posts', my_posts_path, current_page: current_page if current_user.present?
+
+        li.dropdown
+            a.dropdown-toggle href="#" data-bs-toggle="dropdown" aria-expanded="false"
+                = I18n.locale.to_s
+            ul.dropdown-menu
+                - I18n.available_locales.each do |l|
+                    li
+                        - if I18n.locale == l
+                            = tag.span l, class: 'dropdown-item'
+                        - else
+                            = link_to l ,root_path(locale: l)
