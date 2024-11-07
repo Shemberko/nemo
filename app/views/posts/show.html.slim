@@ -1,0 +1,19 @@
+=provide :page_title, "post#{@post.id}"
+=currently_at("#{@post.id}")
+
+.container#post data-post-id=@post.id
+  .row
+    .col-md-10.offset-md-1
+      img src="#{@post.photo&.url || asset_path('no_img.png')}" class="img-fluid rounded-start" style="width: 90vw; height: 50vh;"
+    .card-body
+      .row.d-flex.justify-content-between.align-items-center
+        h4.card-title = @post.title
+        small.text-muted= @post.created_at.strftime("%Y-%m-%d")
+      .row
+        p.card-text = @post.description
+  =turbo_frame_tag "comments_#{@post.id}"
+    .div id="comments" data-id="#{@post.id}"
+      -if @comments.present?
+        -@comments.each do |comment|
+          = render  partial: "comments/comment", locals: {comment: comment}
+  = render partial: "comments/form", locals: { comment: Comment.new, post: @post }

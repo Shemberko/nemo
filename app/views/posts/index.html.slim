@@ -1,20 +1,10 @@
+=provide :page_title, 'Posts'
+=currently_at('posts')
+
 h1 Our posts
-- @posts.each do |post|
-  .blocks
-    .blocks_other
-      h4 = post.title
-      p = post.description
-      date = post.created_at
-    .blocks_photo
-      - if post.photo.url.present?
-        img src="#{post.photo&.url}"
-        //= image_tag post.photo.url (:medium)
-        
-    .buttons_bl
-      .button
-        li = link_to "edit",  edit_post_path(post.id)
-      .button
-        li = link_to "Delete", post_path(post), data: { turbo_method: "delete", turbo_confirm: "Are you sure?" }
-    
-   
-   
+.container-fluid
+  .row.justify-content-center.overflow-y
+    .col-8
+      = turbo_frame_tag :posts do
+        = render @posts
+      = turbo_frame_tag :pagination, loading: :lazy, src: posts_path(page: @pagy.next, format: :turbo_stream) if @pagy.next

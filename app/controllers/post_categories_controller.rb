@@ -8,7 +8,7 @@ class PostCategoriesController< ApplicationController
     @category = PostCategory.new
   end
   def create 
-    @category = PostCategory.new post_category_params
+    @category = PostCategory.create post_category_params
     if @category.save
       redirect_to post_categories_path
     else
@@ -19,10 +19,10 @@ class PostCategoriesController< ApplicationController
   def edit 
   end
   def update 
-    if @category.update
+    if @category.update post_category_params
       redirect_to post_categories_path
     else
-      render:edit
+      render :edit
     end
   end
   def show 

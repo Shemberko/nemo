@@ -1,12 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :posts
-  resources :post_categories
-  # Defines the root path route ("/")
-  #root "articles#index"
+
+  # Root page
   root "home#index"
+
+  # Custom route for my_posts
+  get 'my_posts', to: 'posts#my_posts', as: :my_posts
+
+  # Routes for posts, including destroy action
   resources :posts do
-    delete :destroy, on: :member
+    resources :comments
   end
+
+  namespace :admin do
+    resources :posts, only: %i[create index]
+  end
+
+  # Routes for post categories
+  resources :post_categories
 end

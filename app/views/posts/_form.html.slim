@@ -1,13 +1,18 @@
-= form_with model: @post do |pp|
+= form_with model: @post, local: true, class: 'card p-4' do |pp|
   .form_block
-    .new_title
-      = pp.label :title 
-      = pp.text_field :title, placeholder: "Title",required: true, minlength: 1
-    .new_description 
-      = pp.label :description 
-      = pp.text_area :description, placeholder: "Description", required: true, minlength: 5
-    .new_photo 
-      = pp.file_field :photo
-    .new_select
-      = pp.select :post_category_id, collection: PostCategory.pluck(:name, :id)
-  = pp.submit "Submit post"
+    .card-body
+      .mb-1.d-flex.justify-content-between.align-items-center
+        = pp.label :title, class: 'form-label'
+        = pp.text_field :title, placeholder: "Title", class: 'form-control w-75', required: true, minlength: 1
+      .mb-1.d-flex.justify-content-between.align-items-center
+        = pp.label :description, class: 'form-label'
+        = pp.text_area :description, placeholder: "Description", class: 'form-control w-75', required: true, minlength: 5
+      .mb-1.d-flex.justify-content-between.align-items-center
+        = pp.label :photo, class: 'form-label'
+        = pp.file_field :photo, class: 'form-control w-75'
+      .mb-1.d-flex.justify-content-between.align-items-center
+        = pp.label :post_category_id, class: 'form-label'
+        = pp.select :post_category_id, PostCategory.pluck(:name, :id), {}, class: 'form-select w-75'
+
+    .card-footer.text-end
+      = pp.submit "Submit post", class: 'btn btn-primary'

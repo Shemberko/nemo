@@ -1,0 +1,17 @@
+= turbo_frame_tag post do
+  .card.mb-4
+    .row.g-0
+      .col-md-8
+        .card-body
+          h4.card-title = post.title
+          h3.card-title = post.id
+          p.card-text = post.description
+          small.text-muted= post.created_at.strftime("%Y-%m-%d")
+      .col-md-4
+        - if post.photo.url.present?
+          img src="#{post.photo&.url}" class="img-fluid rounded-start"
+
+    - if post.is_my?(current_user)
+      .card-footer.text-end
+        li.d-inline-block = link_to "Edit", edit_post_path(post), class: "btn btn-primary btn-sm", data: { turbo_frame: "edit_post" }
+        li.d-inline-block = button_to "Delete", post_path(post), method: :delete, class: "btn btn-danger btn-sm", data: { confirm: 'Are you sure?', turbo_method: :delete }

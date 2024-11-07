@@ -1,0 +1,6 @@
+p  Here you can read my blogs
+
+=link_to "Download zip posts" , admin_posts_path(format: :zip)
+=form_with url: admin_posts_path do |f|
+  =f.file_field :archive
+  =f.submit "goo"

@@ -1,0 +1,12 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Post") do |sheet|
+    sheet.add_row ["ID", post.id]
+    sheet.add_row ["UserId", post.user_id]
+    sheet.add_row ["PostCategoryId", post.post_category_id]
+    sheet.add_row ["Title", post.title]
+    sheet.add_row ["Description", post.description]
+    sheet.add_row ["CreatedAt", post.created_at]
+
+
+end

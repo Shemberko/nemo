@@ -1,0 +1,11 @@
+=provide :page_title, 'My Posts'
+=currently_at('my_posts')
+
+.container
+  .row
+    .col-md-10.offset-md-1
+      h1 My Posts
+      =turbo_frame_tag "post_creation"
+        li = link_to'Create', new_post_path
+      =turbo_frame_tag "posts"
+        =render @my_posts

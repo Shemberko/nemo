@@ -1,0 +1,5 @@
+=provide :main_menu do
+  header.navbar.navbar-expand-lg.navbar-dark.bg-dark
+    li = nav_tab 'home', root_path,  current_page: current_page
+    li = nav_tab 'posts', posts_path, current_page: current_page
+    li = nav_tab 'my_posts', my_posts_path, current_page: current_page if current_user.present?
